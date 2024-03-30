@@ -1,0 +1,17 @@
+{
+    "name": "pattoxd/router",
+    "description": "Basic Router",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Pattoxd\\Router\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PattoxD",
+            "email": "edgaripatricio@gmail.com"
+        }
+    ],
+    "require": {}
+}
