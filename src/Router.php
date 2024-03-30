@@ -1,6 +1,6 @@
 <?php
 
-namespace Pattoxd;
+namespace Pattoxd\Router;
 
 class Router
 {
