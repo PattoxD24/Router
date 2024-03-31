@@ -2,7 +2,6 @@
 
 namespace Pattoxd\Router;
 
-
 /**
  * The Router class handles routing and dispatching requests to the appropriate controller and method.
  */
@@ -156,7 +155,7 @@ class Router
 
             // Get the path to the controller file
             $controllerPath = '/Controllers/' . $controller . 's.php';
-            $fullPath = base_path($controllerPath);
+            $fullPath = $this->base_path . $controllerPath;
 
             // Check if the controller file exists
             if (!file_exists($fullPath)) {
@@ -164,12 +163,16 @@ class Router
             }
 
             // Include the controller file
-            require_once $fullPath;
+            $class_namespace = require_once $fullPath;
 
             // Get the fully qualified class name of the controller
             $class = $this->fullPathToController($controllerPath);
             $class = trim($class, '\\');
 
+            $class_namespace_array = explode('\\', $class_namespace);
+            if (count($class_namespace_array) > 1) {
+                $class = $class_namespace_array[0] . '\\' . $class;
+            }
             // Check if the controller class exists
             if (!class_exists($class)) {
                 $this->abort();
