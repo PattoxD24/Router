@@ -1,6 +1,6 @@
 <?php
 
-namespace Pattoxd\Router;
+namespace Pattoxd;
 
 /**
  * The Router class handles routing and dispatching requests to the appropriate controller and method.
